@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+
+    .nav {
+
+        &__link {
+            display: block;
+        }
+
+        &__burger-btn {
+            display: none;
+            
+        }
+    }
+    
+}

@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/0a6215f983.js" crossorigin="anonymous"></script>
+    <title>ShoppingCart</title>
 </head>
+
 <body>
 
-    
-    
-    
+    <nav class="nav">
+        <a href="">
+            <div class="nav__logo">Shopping<span>Cart</span></div>
+        </a>
+        <div class="nav__cart-info">
+            <p class="nav__amount" id="cartItemsAmount">0</p>
+            <p class="nav__amount" id="cartSum">0</p>
+            <button class="open-btn" href=""><i class="fa-brands fa-opencart"></i></button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="products">
+   
+        </section>
+
+        <section class="cart">
+            <button class="cart__close"><i class="fa-solid fa-xmark"></i></button>
+            <h2 class="cart__heading">Your Cart</h2>
+            <div class="cart__container">
+            </div>
+        </section>
+
+    </main>
 
 
 
@@ -18,17 +42,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<script src="/script.js"></script>
+    <script src="/script.js"></script>
 </body>
+
 </html>

@@ -1,24 +1,29 @@
 @import './colors';
 @import './components';
 @font-face {
-	font-family: 'Ubuntu', sans-serif;
-	src: url("/Fonts/Ubuntu-Regular.ttf") format("truetype");
+	font-family: 'Roboto', sans-serif;
+	src: url('/font/Roboto-Regular.ttf') format('truetype');
 	font-weight: 400;
 }
 @font-face {
-	font-family: 'Ubuntu', sans-serif;
-	src: url("/Fonts/Ubuntu-Light.ttf") format("truetype");
+	font-family: 'Roboto', sans-serif;
+	src: url('/font/Roboto-Thin.ttf') format('truetype');
 	font-weight: 300;
 }
 @font-face {
-	font-family: 'Ubuntu', sans-serif;
-	src: url("/Fonts/Ubuntu-Medium.ttf") format("truetype");
+	font-family: 'Roboto', sans-serif;
+	src: url('/font/Roboto-Medium.ttf') format('truetype');
 	font-weight: 500;
 }
 @font-face {
-	font-family: 'Ubuntu', sans-serif;
-	src: url("/Fonts/Ubuntu-Bold.ttf") format("truetype");
+	font-family: 'Roboto', sans-serif;
+	src: url('/font/Roboto-Bold.ttf') format('truetype');
 	font-weight: 700;
+}
+@font-face {
+	font-family: 'Nanum Pen script', sans-serif;
+	src: url('/font/NanumPenScript-Regular.ttf') format('truetype');
+	font-weight: 400;
 }
 *,
 *::after,
@@ -26,6 +31,10 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+a {
+    cursor: pointer;
 }
 
 html {
@@ -36,11 +45,153 @@ html {
 body {
 	position: relative;
 	max-width: 100vw;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 1.6rem;
-	color: $text;
 	background-color: $background;
 }
+
+.nav {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3em;
+	width: 100vw;
+	background-color: $second-color;
+
+	&__logo {
+		display: none;
+		font-family: 'Nanum Pen Script', cursive;
+		text-decoration: underline;
+		color: $text;
+		font-size: 2.5rem;
+		padding: 0.5em;
+		cursor: pointer;
+
+		span {
+			color: $cta
+		}
+	}
+
+	&__cart-info {
+		display: flex;
+		min-width: 30%;
+		margin-left: 3em;
+
+		.open-btn {
+			font-size: 2.5rem;
+			color: $cta;
+			cursor: pointer;
+			background: none;
+			border: none;
+			outline: none;
+
+		}
+	}
+
+	&__amount {
+		font-size: 2.5rem;
+		color: $text;
+		text-align: left;
+		margin: 0 1em;
+	}
+}
+
+main {
+	.products {
+		padding-top: 5em;
+		width: 100vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		&__product {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			margin: 2em;
+		}
+
+		&__img {
+			height: 200px;
+			width: 200px;
+			border-radius: 8px;
+		}
+
+		&__name {
+			color: $text;
+			margin-top: 1em;
+		}
+
+		&__price {
+			color: $text;
+			margin-top: 1em
+		}
+	}
+
+	.cart {
+		position: fixed;
+		top: 0;
+		right: 0;
+		transform: translateX(100%);
+		height: 100vh;
+		width: 100vw;
+		background-color: $background;
+		transition: transform 0.3s;
+		color: $text;
+
+		&__close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 0.5em;
+			font-size: 2em;
+			background: none;
+			outline: none;
+			border: none;
+			cursor: pointer;
+			color: $cta;
+		}
+
+		&__heading {
+			position: absolute;
+			top: 1em;
+			right: 50%;
+			transform: translateX(50%);
+			color: $text;
+		}
+
+		&__container {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			flex-direction: column;
+			margin-top: 5em;
+			min-height: 5em;
+			width: 100%;
+		}
+
+		&__amount {
+			order: 0;
+			margin: 2em;
+		}
+
+		&__item {
+			margin: 1em 2em;
+			order: -1;
+		}
+
+		&__sum-wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: row;
+		}
+	}
+}
+
 
 
 

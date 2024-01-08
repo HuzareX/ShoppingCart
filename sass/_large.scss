@@ -1,0 +1,13 @@
+@media (min-width: 992px) {
+	main {
+		.cart {
+			width: 30vw;
+            border-left: 2px solid $cta;
+		}
+	}
+	.nav {
+		&__logo {
+			display: block;
+		}
+	}
+}

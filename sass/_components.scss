@@ -1,0 +1,32 @@
+.add-btn {
+    background-color: $cta;
+    padding: 1em;
+    margin-top: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.cart-button {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    padding: 0.5em;
+    margin: 0.2em;
+    cursor: pointer;
+}
+
+.increase-button {
+    color: greenyellow;
+}
+
+.decrease-button {
+    color: yellow;
+}
+
+.delete-button {
+    color: red;
+    
+}
