@@ -17,6 +17,8 @@ closeButton.addEventListener('click', closeCart)
 //RenderProducts
 const sectionProducts = document.querySelector('.products')
 const cartContainer = document.querySelector('.cart__container')
+const cartSum = document.querySelector('#cartSum')
+const cartItemsAmount = document.querySelector('#cartItemsAmount')
 const cart = []
 const products = [
 	{
@@ -87,7 +89,7 @@ renderProducts()
 const addButtons = document.querySelectorAll('.add-btn')
 
 const addToCart = (productName, productPrice) => {
-	console.log(`Added a ${productName} to your cart at a price ${productPrice} PLN`);
+	console.log(`Added a ${productName} to your cart at a price ${productPrice} PLN`)
 
 	const existingProduct = cart.find(product => product.name === productName)
 
@@ -107,6 +109,7 @@ const addToCart = (productName, productPrice) => {
 
 	console.log(cart)
 	renderCart()
+	getCartTotal()
 }
 
 const increaseAmount = productName => {
@@ -115,9 +118,10 @@ const increaseAmount = productName => {
 	if (existingProduct) {
 		existingProduct.amount += 1
 		existingProduct.total += existingProduct.price
-	} 
+	}
 
 	renderCart()
+	getCartTotal()
 }
 const decreaseAmount = productName => {
 	const existingProduct = cart.find(product => product.name === productName)
@@ -130,24 +134,27 @@ const decreaseAmount = productName => {
 	}
 
 	renderCart()
+	getCartTotal()
 }
 const deleteAmount = productName => {
 	const existingProduct = cart.find(product => product.name === productName)
 
 	if (existingProduct !== -1) {
 		cart.splice(existingProduct, 1)
-		
-	} 
+	}
 
 	renderCart()
+	getCartTotal()
 }
 
-
-
-
+const getCartTotal = () => {
+	const totalPrice = cart.reduce((sum, product) => sum + product.total, 0)
+	cartSum.textContent = `${totalPrice.toFixed(2)} PLN`
+	cartItemsAmount.textContent = `${cart.reduce((sum, product) => sum + product.amount, 0)} items`
+	return totalPrice
+}
 
 const renderCart = () => {
-
 	cartContainer.innerHTML = ''
 
 	cart.forEach(product => {
@@ -187,7 +194,6 @@ const renderCart = () => {
 		deleteBtn.appendChild(faXmark)
 		deleteBtn.addEventListener('click', () => deleteAmount(product.name))
 
-
 		cartContainer.appendChild(newItem)
 		newItem.appendChild(itemName)
 		newItem.appendChild(itemAmount)
@@ -196,12 +202,7 @@ const renderCart = () => {
 		newItem.appendChild(decreaseBtn)
 		newItem.appendChild(deleteBtn)
 	})
-
 }
-
-
-
-
 
 addButtons.forEach((addBtn, index) => {
 	addBtn.addEventListener('click', () => {
